@@ -22,7 +22,7 @@ include .depend
 
 .PHONY: clean
 clean:
-	rm -rf obj .depend
+	rm -rf obj dist .depend *.exe
 
 # Verification
 # ------------
