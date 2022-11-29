@@ -1,4 +1,6 @@
 obj
-dist
 .depend
 *.exe
+*.d
+*.o
+*.a
