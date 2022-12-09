@@ -1,5 +1,5 @@
 [
-  "\b¯~4ãì\\çñpó|Fªˇ_",
+  "*êå£•n–ü¢TB≤ı¯·*",
   [
     [
       "MerkleTree.Low.Serialization.serialize_bool",
@@ -63,7 +63,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "f1c4e2602f3a352f9b4a3a2e77764d62"
+      "e55f84e4a0b873fda2f5adfdb1748b93"
     ],
     [
       "MerkleTree.Low.Serialization.serialize_uint8_t",
@@ -126,7 +126,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "097882c439b1484cb0f9a58c163ac841"
+      "c9c5f224cf23df35d6595d9c3c01d937"
     ],
     [
       "MerkleTree.Low.Serialization.serialize_uint16_t",
@@ -172,7 +172,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "ee59d69121a32f34c6619516d68ab3d5"
+      "18b5a3b2fc68b3c3494d8288ad6785a3"
     ],
     [
       "MerkleTree.Low.Serialization.serialize_uint32_t",
@@ -218,7 +218,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "afd0ea83d824734d1affd701cca97b71"
+      "ef1bd325706539afe4fef651aca00692"
     ],
     [
       "MerkleTree.Low.Serialization.serialize_uint64_t",
@@ -264,7 +264,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "d4a2f8eccbf3ea2772036fbb4729dcf9"
+      "1c77d054dd7ed4483fed93dc2cce60b3"
     ],
     [
       "MerkleTree.Low.Serialization.serialize_hash_i",
@@ -338,7 +338,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "12a4df06efebbba552dc25d8d10d4826"
+      "a184458ce5175e68e36d19444877cc87"
     ],
     [
       "MerkleTree.Low.Serialization.serialize_hash",
@@ -404,7 +404,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "463c6574a729907d6285b96dbec0def8"
+      "b0e20769732f797d89045bb46699c5f7"
     ],
     [
       "MerkleTree.Low.Serialization.u64_add_fits",
@@ -445,7 +445,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "9b27fa4ea6e303873942d78c79187ef5"
+      "e99c13e317dc3987f0b0b9cd3ab87588"
     ],
     [
       "MerkleTree.Low.Serialization.hash_vec_bytes",
@@ -517,7 +517,7 @@
         "typing_Spec.AES.gf8", "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "bdcde999127e45a2d71ae3a7a6ac2d13"
+      "9d893fca4e7eff38144fe06e83ad5dc1"
     ],
     [
       "MerkleTree.Low.Serialization.serialize_hash_vec_i",
@@ -623,7 +623,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "593dc358bfd50f20fd578f4fa9db41d8"
+      "71aeb0dcb81fa0eb26fd607d50ede9df"
     ],
     [
       "MerkleTree.Low.Serialization.serialize_hash_vec",
@@ -727,7 +727,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "a178ac08013ab3fdee78854e9e940686"
+      "57da2ff804d3f0b36654af296676d239"
     ],
     [
       "MerkleTree.Low.Serialization.hash_vv_bytes_i",
@@ -798,7 +798,7 @@
         "typing_Spec.AES.gf8", "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "4b1323f1a16ee898a01b4f6b31a8a889"
+      "f22b63ad2a84a83b53019ead0b53aa5e"
     ],
     [
       "MerkleTree.Low.Serialization.serialize_hash_vv_i",
@@ -862,15 +862,15 @@
         "equation_MerkleTree.Low.Serialization.uint32_t",
         "equation_MerkleTree.Low.Serialization.uint8_p",
         "equation_MerkleTree.Low.Serialization.uint8_t",
-        "equation_Spec.AES.gf8", "equation_Spec.AES.irred",
-        "equation_Spec.GaloisField.gf",
+        "equation_Prims.nat", "equation_Spec.AES.gf8",
+        "equation_Spec.AES.irred", "equation_Spec.GaloisField.gf",
         "fuel_guarded_inversion_FStar.Pervasives.Native.tuple2",
         "fuel_guarded_inversion_LowStar.Vector.vector_str",
         "function_token_typing_FStar.Integers.uint_8",
         "function_token_typing_Lib.IntTypes.byte_t",
         "function_token_typing_LowStar.Regional.Instances.vector_region_of",
         "function_token_typing_MerkleTree.Low.Datastructures.hash_vec_region_of",
-        "int_inversion",
+        "int_inversion", "int_typing",
         "interpretation_Tm_abs_8af5505247aa684e407d3b8992667aef",
         "lemma_FStar.HyperStack.ST.lemma_same_refs_in_stack_regions_elim",
         "lemma_FStar.HyperStack.ST.lemma_same_refs_in_stack_regions_intro",
@@ -909,6 +909,7 @@
         "refinement_interpretation_Tm_refine_3daf37ab3cd19c1e74e63f8f5e0fb16a",
         "refinement_interpretation_Tm_refine_4097c547095e70012031c1b6bbc9fb12",
         "refinement_interpretation_Tm_refine_446bf10afa9e2c979cbc68d89c3e36ad",
+        "refinement_interpretation_Tm_refine_542f9d4f129664613f2483a6c88bc7c2",
         "refinement_interpretation_Tm_refine_9ff867c004d0e891d59193a1c818b2a7",
         "refinement_interpretation_Tm_refine_de8080fdc4bd6678af723874a7d70466",
         "refinement_interpretation_Tm_refine_f13070840248fced9d9d60d77bdae3ec",
@@ -921,8 +922,8 @@
         "typing_FStar.Monotonic.HyperHeap.mod_set",
         "typing_FStar.Monotonic.HyperHeap.rid", "typing_FStar.Set.empty",
         "typing_FStar.Set.intersect", "typing_FStar.Set.singleton",
-        "typing_FStar.UInt32.lt", "typing_FStar.UInt32.v",
-        "typing_LowStar.Buffer.trivial_preorder",
+        "typing_FStar.UInt.fits", "typing_FStar.UInt32.lt",
+        "typing_FStar.UInt32.v", "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.Monotonic.Buffer.frameOf",
         "typing_LowStar.Monotonic.Buffer.g_is_null",
         "typing_LowStar.Monotonic.Buffer.len",
@@ -937,7 +938,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "0f13245d9b1e157ffaf5fec8c79230b8"
+      "160be1b1853458b80fbb6840b91f2723"
     ],
     [
       "MerkleTree.Low.Serialization.serialize_hash_vv",
@@ -1050,7 +1051,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "c033d44e481e8225b2c9e1400ffc1044"
+      "876bef98498ca27ec29de73af67f8da0"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_bool",
@@ -1059,7 +1060,7 @@
       0,
       [ "@query" ],
       0,
-      "daf785dbf1b48317b71fbf619c27b1b0"
+      "36a9469915a1fa20ce581eb199d0f9a4"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_bool",
@@ -1091,7 +1092,7 @@
         "typing_FStar.UInt32.v"
       ],
       0,
-      "8dbe3cf9ccd677f84f7f8989681bf4d3"
+      "74496d237d56cf91ad351c47bda0e739"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_uint8_t",
@@ -1100,7 +1101,7 @@
       0,
       [ "@query" ],
       0,
-      "72f425d0eb7bdbe664c50b6c73d4e694"
+      "2024bceac1c564282b0d26e8e304e93e"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_uint8_t",
@@ -1133,7 +1134,7 @@
         "typing_FStar.UInt32.v"
       ],
       0,
-      "d918c758176c872abca906a5b14fbaea"
+      "5c2de68bcc626a8b665fe6d58bb88a69"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_uint16_t",
@@ -1142,7 +1143,7 @@
       0,
       [ "@query" ],
       0,
-      "50a79faaa8cc98934688b7cd52d84835"
+      "4dba3e124f212c3da7faa1b9572c10aa"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_uint16_t",
@@ -1217,7 +1218,7 @@
         "typing_tok_Lib.IntTypes.U8@tok"
       ],
       0,
-      "32021624ef2c067dccd82ebe66ba3b64"
+      "95914b5d65ed18e10c29edcb620debe6"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_uint32_t",
@@ -1226,7 +1227,7 @@
       0,
       [ "@query" ],
       0,
-      "d465c5d8f0685bbddb8f864b1c01b525"
+      "173d610822a08b69a1cd7b4e3c79ff70"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_uint32_t",
@@ -1302,7 +1303,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "41198d8446df060d3aa5ed5ef17d7730"
+      "0b571183e1bddca7b16ec4f5eabc7b79"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_uint64_t",
@@ -1311,7 +1312,7 @@
       0,
       [ "@query" ],
       0,
-      "b17f0c7aa153dbef0a61d0a42392c88b"
+      "09ad5a719dced967e211edb84618d7f4"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_uint64_t",
@@ -1385,7 +1386,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "fe8b1fa749021f30d8a28e0e3466c2e5"
+      "c5401b0ba7310cc5b22741ef2b068e63"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_hash",
@@ -1394,7 +1395,7 @@
       0,
       [ "@query" ],
       0,
-      "b20ed9eb881776edf79b7fb0bb4efdc0"
+      "22ade272e03b735b5fcbf183a1f31b48"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_hash",
@@ -1557,7 +1558,7 @@
         "typing_tok_Lib.IntTypes.U8@tok"
       ],
       0,
-      "15624349649e7e5292709da40de3b8a3"
+      "776c8e603894593624857efad68ff5be"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_hash_vec_i",
@@ -1566,7 +1567,7 @@
       0,
       [ "@query" ],
       0,
-      "9bae4d965069281c0caece2b295d6f28"
+      "13847eb993925f7fcca006dcd1d42bc3"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_hash_vec_i",
@@ -1682,7 +1683,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "fef7f9d3ba1f13267c6726c67ca96a7d"
+      "fdb9528aff64fac8813da0efef5ed042"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_hash_vec",
@@ -1691,7 +1692,7 @@
       0,
       [ "@query" ],
       0,
-      "61fcae0b61d115ed0d99294391ac4cdb"
+      "21bcd2d2a2c2da13d43632eef0eec966"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_hash_vec",
@@ -1714,6 +1715,7 @@
         "equation_FStar.Integers.int_t", "equation_FStar.Integers.uint_8",
         "equation_FStar.Monotonic.Heap.equal_dom",
         "equation_FStar.Monotonic.HyperHeap.hmap",
+        "equation_FStar.Monotonic.HyperStack.is_heap_color",
         "equation_FStar.Monotonic.HyperStack.mem",
         "equation_FStar.UInt.fits", "equation_FStar.UInt.gt",
         "equation_FStar.UInt.lt", "equation_FStar.UInt.min_int",
@@ -1727,6 +1729,8 @@
         "equation_LowStar.ConstBuffer.length",
         "equation_LowStar.ConstBuffer.live",
         "equation_LowStar.ConstBuffer.qbuf_pre",
+        "equation_LowStar.ConstBuffer.qbuf_qual",
+        "equation_LowStar.ConstBuffer.qual_of",
         "equation_LowStar.Monotonic.Buffer.length",
         "equation_LowStar.Vector.loc_vector",
         "equation_LowStar.Vector.vector",
@@ -1771,14 +1775,17 @@
         "refinement_interpretation_Tm_refine_d3f2784247189a47e567161c4f476e6f",
         "refinement_interpretation_Tm_refine_de8080fdc4bd6678af723874a7d70466",
         "refinement_interpretation_Tm_refine_f13070840248fced9d9d60d77bdae3ec",
-        "typing_FStar.Map.domain", "typing_FStar.Monotonic.HyperHeap.rid",
+        "typing_FStar.Map.domain", "typing_FStar.Monotonic.HyperHeap.color",
+        "typing_FStar.Monotonic.HyperHeap.rid",
         "typing_FStar.Monotonic.HyperHeap.rid_freeable",
         "typing_FStar.Monotonic.HyperStack.get_hmap",
+        "typing_FStar.Monotonic.HyperStack.is_heap_color",
         "typing_FStar.UInt32.gt", "typing_FStar.UInt32.lt",
         "typing_FStar.UInt32.v", "typing_Lib.IntTypes.unsigned",
         "typing_LowStar.Buffer.trivial_preorder",
         "typing_LowStar.ConstBuffer.as_mbuf",
         "typing_LowStar.ConstBuffer.as_qbuf",
+        "typing_LowStar.ConstBuffer.q_preorder",
         "typing_LowStar.ConstBuffer.qbuf_pre",
         "typing_LowStar.Monotonic.Buffer.address_liveness_insensitive_locs",
         "typing_LowStar.Monotonic.Buffer.g_is_null",
@@ -1788,10 +1795,11 @@
         "typing_LowStar.Vector.loc_vector",
         "typing_MerkleTree.Low.Datastructures.hash", "typing_Spec.AES.gf8",
         "typing_Spec.GaloisField.__proj__GF__item__t",
-        "typing_tok_Lib.IntTypes.U8@tok"
+        "typing_tok_Lib.IntTypes.U8@tok",
+        "typing_tok_LowStar.ConstBuffer.MUTABLE@tok"
       ],
       0,
-      "339150114495d8dc44ed206b4451bd9e"
+      "0b538ee75bbc5fd700e6d8625d7b92c4"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_hash_vv_i",
@@ -1800,7 +1808,7 @@
       0,
       [ "@query" ],
       0,
-      "7e8ca1519f10125a9ebabdf7ad7b444f"
+      "2cddc2ad384c2b378cb6e606a275088c"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_hash_vv_i",
@@ -1957,7 +1965,7 @@
         "typing_Spec.AES.gf8", "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "e13fa7794c66c7e8f380f1e47711fec0"
+      "50716c4dc961792802f39674d385fab6"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_hash_vv",
@@ -1966,7 +1974,7 @@
       0,
       [ "@query" ],
       0,
-      "3cdedbfbcce77a14ccca4798061ff704"
+      "a869447be1c8c901ef3d30060546fd00"
     ],
     [
       "MerkleTree.Low.Serialization.deserialize_hash_vv",
@@ -2091,7 +2099,7 @@
         "typing_tok_Lib.IntTypes.U8@tok"
       ],
       0,
-      "8890a7b9e931d4a1a299792c20bc5cb3"
+      "867cab8198da97a39abe34724b13f08e"
     ],
     [
       "MerkleTree.Low.Serialization.mt_serialize_size",
@@ -2112,7 +2120,7 @@
         "refinement_interpretation_Tm_refine_ae215dc23320c72afef105490c0b13c3"
       ],
       0,
-      "b9fd149b32b97eed8b6a15e1152d852c"
+      "4cd9029db8800ca320cc5e38108d82d6"
     ],
     [
       "MerkleTree.Low.Serialization.mt_serialize_size",
@@ -2247,7 +2255,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "3cca03fd8c6b4ab614197414c840cb1f"
+      "a327f8d674ee39fd94d477bf62d52774"
     ],
     [
       "MerkleTree.Low.Serialization.mt_serialize",
@@ -2268,7 +2276,7 @@
         "refinement_interpretation_Tm_refine_ae215dc23320c72afef105490c0b13c3"
       ],
       0,
-      "983aad752cbf5fc03b5a48ae4a1f3b7d"
+      "57467cace45d63d14620ae97e7b6f10e"
     ],
     [
       "MerkleTree.Low.Serialization.mt_serialize",
@@ -2431,7 +2439,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "7011cfffb0d768d9df858143e4c81cce"
+      "8e5e7e87dc550fdb84ba502342a976bf"
     ],
     [
       "MerkleTree.Low.Serialization.mt_deserialize",
@@ -2498,7 +2506,7 @@
         "typing_tok_Lib.IntTypes.U8@tok"
       ],
       0,
-      "80b645aefabffb7a7f484556ad76cff7"
+      "b5345162eb0e176323cf42e8c2814bc9"
     ],
     [
       "MerkleTree.Low.Serialization.mt_deserialize",
@@ -2541,7 +2549,7 @@
         "typing_LowStar.Monotonic.Buffer.len"
       ],
       0,
-      "5fe944c808cefcc7f72151c1fd55557b"
+      "5f449a518a7a6dc89f4dc008f746b108"
     ],
     [
       "MerkleTree.Low.Serialization.mt_deserialize",
@@ -2695,7 +2703,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "3f1c1ab2b9945d9971c6b838a4edc499"
+      "c2b1d5bb796af3e4a6d1561490839206"
     ],
     [
       "MerkleTree.Low.Serialization.mt_serialize_path",
@@ -2724,7 +2732,7 @@
         "typing_FStar.UInt32.t", "typing_LowStar.ConstBuffer.cast"
       ],
       0,
-      "806dddc9fe86bf0a61bfbbd9d97711da"
+      "75709f12351679d59b9d5d814680ebc6"
     ],
     [
       "MerkleTree.Low.Serialization.mt_serialize_path",
@@ -2753,7 +2761,7 @@
         "typing_LowStar.Monotonic.Buffer.frameOf"
       ],
       0,
-      "b1a61bea6aa8e2c515ac6e98a9d5b232"
+      "7ae3e86ebe760c30962754504faa2e52"
     ],
     [
       "MerkleTree.Low.Serialization.mt_deserialize_path",
@@ -2762,7 +2770,7 @@
       1,
       [ "@query" ],
       0,
-      "8122144a49e03dab8acb47bcbab720e9"
+      "1991fe20a592e54f68d8bff1739994a0"
     ],
     [
       "MerkleTree.Low.Serialization.mt_deserialize_path",
@@ -2771,7 +2779,7 @@
       1,
       [ "@query" ],
       0,
-      "16fff2e54262de0fb54368c40aa39c34"
+      "e4b936881db9bba97ed1eb25a988c2f3"
     ],
     [
       "MerkleTree.Low.Serialization.mt_deserialize_path",
@@ -2889,7 +2897,7 @@
         "typing_Spec.GaloisField.__proj__GF__item__t"
       ],
       0,
-      "f1d0f47728f93a07a59c9eef3761c9dc"
+      "56ef661749d857667ecdbb1873a31ed4"
     ]
   ]
 ]

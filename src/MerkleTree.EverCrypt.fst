@@ -47,18 +47,18 @@ let mt_sha256_compress src1 src2 dst =
                     (Rgl?.r_repr(hreg hash_size) hh0 src2))
                   (B.as_seq hh1 cb));
 
-  EHS.update #(Ghost.hide hash_alg) st 0UL cb;
+  EHS.update_multi #(Ghost.hide hash_alg) st 0UL cb (Hacl.Hash.Definitions.block_len Spec.Hash.Definitions.SHA2_256);
+  Spec.Hash.Lemmas.update_multi_update Spec.Hash.Definitions.SHA2_256 (EHS.repr st hh1) (B.as_seq hh1 cb);
   let hh2 = HST.get () in
-  assert ((EHS.repr st hh2, ()) ==
+  assert (EHS.repr st hh2 ==
             Spec.Agile.Hash.update hash_alg (Spec.Agile.Hash.init hash_alg)
                                             (B.as_seq hh1 cb));
   assert (S.equal (S.append S.empty (B.as_seq hh1 cb))
                   (B.as_seq hh1 cb));
-
   EHS.finish #(Ghost.hide hash_alg) st dst;
   let hh3 = HST.get () in
   assert (S.equal (B.as_seq hh3 dst)
-                  (Spec.Hash.PadFinish.finish hash_alg (EHS.repr st hh2, ())));
+                  (Spec.Hash.PadFinish.finish hash_alg (EHS.repr st hh2)));
   assert (S.equal (B.as_seq hh3 dst)
                   (Spec.Hash.PadFinish.finish hash_alg (Spec.Agile.Hash.update hash_alg (Spec.Agile.Hash.init hash_alg) (B.as_seq hh1 cb))));
   assert (S.equal (B.as_seq hh3 dst)
