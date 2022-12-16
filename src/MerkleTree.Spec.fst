@@ -20,7 +20,7 @@ let sha256_compress src1 src2 =
   let hash_alg = Spec.Hash.Definitions.SHA2_256 in
   let acc = Spec.Agile.Hash.init hash_alg in
   let acc = Spec.Agile.Hash.update hash_alg acc (S.append src1 src2) in
-  Spec.Hash.PadFinish.finish hash_alg acc 
+  Spec.Agile.Hash.finish hash_alg acc
 
 /// For simplicity, we will specify the root for a sequence of [i]
 /// tags where [i <= 2^n] as the root of a full binary tree with [2^n]
@@ -187,7 +187,7 @@ val mt_next_rel_upd_even:
   n:pos ->
   mt:merkle_tree #hsz n ->
   nmt:merkle_tree (n - 1) ->
-  i:nat{i < pow2 (n-1)} -> 
+  i:nat{i < pow2 (n-1)} ->
   v:padded_hash ->
   Lemma (requires mt_next_rel #_ #f n mt nmt)
         (ensures  mt_next_rel #_ #f n
@@ -201,7 +201,7 @@ val mt_next_rel_upd_even_pad:
   n:pos ->
   mt:merkle_tree #hsz n ->
   nmt:merkle_tree #hsz (n - 1) ->
-  i:nat{i < pow2 (n-1)} -> 
+  i:nat{i < pow2 (n-1)} ->
   v:padded_hash #hsz ->
   Lemma (requires (mt_next_rel #_ #f n mt nmt) /\ (S.index mt (2 * i + 1) == HPad))
         (ensures (mt_next_rel #_ #f n (S.upd mt (2 * i) v) (S.upd nmt i v)))
@@ -213,7 +213,7 @@ val mt_next_rel_upd_odd:
   n:pos ->
   mt:merkle_tree #hsz n ->
   nmt:merkle_tree (n - 1) ->
-  i:nat{i < pow2 (n-1)} -> 
+  i:nat{i < pow2 (n-1)} ->
   v:padded_hash ->
   Lemma (requires mt_next_rel #_ #f n mt nmt)
         (ensures  mt_next_rel #_ #f n
@@ -222,7 +222,7 @@ val mt_next_rel_upd_odd:
 let mt_next_rel_upd_odd #hsz #f n mt nmt i v = ()
 
 // fournet: just [root]?
-val mt_get_root: 
+val mt_get_root:
   #hsz:pos -> #f:hash_fun_t #hsz ->
   #n:nat -> mt:merkle_tree #hsz n -> GTot (padded_hash #hsz)
 let rec mt_get_root #hsz #f #n mt =
@@ -248,8 +248,8 @@ type path #hsz n = S.lseq (padded_hash #hsz) n
 
 /// We first specify full paths, including padding.
 
-val mt_get_path: 
-  #hsz:pos -> #f:hash_fun_t #hsz -> #n:nat -> 
+val mt_get_path:
+  #hsz:pos -> #f:hash_fun_t #hsz -> #n:nat ->
   mt:merkle_tree #hsz n -> i:nat{i < pow2 n} -> GTot (path #hsz n)
 let rec mt_get_path #hsz #f #n t i =
   if n = 0 then S.empty
@@ -257,8 +257,8 @@ let rec mt_get_path #hsz #f #n t i =
     (if i % 2 = 0 then t.[i + 1] else t.[i - 1])
     (mt_get_path #_ #f (mt_next_lv #_ #f t) (i / 2))
 
-val mt_verify_: 
-  #hsz:pos -> #f:hash_fun_t #hsz ->#n:nat -> 
+val mt_verify_:
+  #hsz:pos -> #f:hash_fun_t #hsz ->#n:nat ->
   p:path #hsz n -> idx:nat{idx < pow2 n} -> padded_hash #hsz -> GTot (padded_hash #hsz)
 let rec mt_verify_ #hsz #f #n p idx h =
   if n = 0 then h
@@ -267,8 +267,8 @@ let rec mt_verify_ #hsz #f #n p idx h =
                    then padded_hash_fun #_ f h (S.head p)
                    else padded_hash_fun #_ f (S.head p) h)
 
-val mt_verify: 
-  #hsz:pos -> #f:hash_fun_t #hsz -> #n:nat -> 
+val mt_verify:
+  #hsz:pos -> #f:hash_fun_t #hsz -> #n:nat ->
   p:(path #hsz n) -> idx:nat{idx < pow2 n} -> padded_hash #hsz -> padded_hash #hsz -> GTot prop
 let mt_verify #hsz #f #n p idx h rt =
   rt == mt_verify_ #_ #f p idx h
@@ -276,8 +276,8 @@ let mt_verify #hsz #f #n p idx h rt =
 
 /// Correctness: the root of a tree is correctly recomputed from any of its paths
 
-val hs_next_lv_get: 
-  #hsz:pos -> #f:hash_fun_t #hsz -> #n:pos -> 
+val hs_next_lv_get:
+  #hsz:pos -> #f:hash_fun_t #hsz -> #n:pos ->
   hs:hashes{S.length hs = 2 * n} -> idx:nat{idx < 2 * n} ->
   Lemma ((hs_next_lv #_ #f #n hs).[idx / 2] ==
          (if idx % 2 = 0
@@ -287,8 +287,8 @@ let rec hs_next_lv_get #hsz #f #n hs idx =
   if idx < 2 then ()
   else hs_next_lv_get #_ #f #(n-1) (S.slice hs 2 (S.length hs)) (idx - 2)
 
-val mt_next_lv_get: 
-  #hsz:pos -> #f:hash_fun_t #hsz -> #n:pos -> 
+val mt_next_lv_get:
+  #hsz:pos -> #f:hash_fun_t #hsz -> #n:pos ->
   mt:merkle_tree #hsz n -> idx:nat{idx < pow2 n} ->
   Lemma (
      (mt_next_lv #_ #f mt).[idx / 2] ==
@@ -298,14 +298,14 @@ val mt_next_lv_get:
 let mt_next_lv_get #hsz #f #n mt idx =
   hs_next_lv_get #_ #f #(pow2 (n-1)) mt idx
 
-val mt_get_path_ok_: 
-  #hsz:pos -> #f:hash_fun_t #hsz -> #n:nat -> 
+val mt_get_path_ok_:
+  #hsz:pos -> #f:hash_fun_t #hsz -> #n:nat ->
   t:merkle_tree #hsz n -> i:nat{i < pow2 n} ->
   Lemma (mt_verify_ #_ #f (mt_get_path #_ #f t i) i (mt_get t i) == mt_get_root #_ #f t)
 let rec mt_get_path_ok_ #hsz #f #n mt idx =
   if n = 0 then ()
   else begin
-    assert (S.head (mt_get_path #_ #f mt idx) == 
+    assert (S.head (mt_get_path #_ #f mt idx) ==
             (if idx % 2 = 0 then mt.[idx + 1] else mt.[idx - 1]));
     assert (S.equal (S.tail (mt_get_path #_ #f mt idx))
                     (mt_get_path #_ #f (mt_next_lv #_ #f mt) (idx / 2)));
@@ -323,14 +323,14 @@ let rec mt_get_path_ok_ #hsz #f #n mt idx =
 /// implicit padding.
 
 /// All hashes in a sequence are raw hashes, not padding
-val raw_hashes: 
+val raw_hashes:
   #hsz:pos -> #f:hash_fun_t #hsz ->
   hs:hashes #hsz -> Tot Type0 (decreases (S.length hs))
 let rec raw_hashes #hsz #f hs =
   if S.length hs = 0 then True
   else (HRaw? (S.head hs) /\ raw_hashes #_ #f (S.tail hs))
 
-val raw_hashes_raws: 
+val raw_hashes_raws:
   #hsz:pos -> #f:hash_fun_t #hsz ->
   hs:hashes{raw_hashes #hsz #f hs} ->
   Tot (S.seq (hash #hsz)) (decreases (S.length hs))
@@ -361,7 +361,7 @@ let rec raw_hashes_slice #hsz #f hs i j =
     raw_hashes_slice #_ #f hs (i + 1) j)
 
 /// All hashes in a sequence are just padding
-val pad_hashes: 
+val pad_hashes:
   #hsz:pos -> #f:hash_fun_t #hsz ->
   hs:hashes #hsz -> Type0
 let pad_hashes #hsz #f hs =
@@ -482,7 +482,7 @@ let rpmt_get_root_raw #hsz #f #n #i mt =
 
 #push-options "--z3rlimit 100"
 
-val extract: 
+val extract:
   #hsz:pos -> #f:hash_fun_t #hsz ->
   #n:nat -> #i:nat{i <= pow2 n} -> mt_collide #_ #f n i -> GTot hash2_raw_collide
 let rec extract #hsz #f #n #i (Collision t1 t2) =

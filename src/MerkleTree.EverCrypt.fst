@@ -58,9 +58,9 @@ let mt_sha256_compress src1 src2 dst =
   EHS.finish #(Ghost.hide hash_alg) st dst;
   let hh3 = HST.get () in
   assert (S.equal (B.as_seq hh3 dst)
-                  (Spec.Hash.PadFinish.finish hash_alg (EHS.repr st hh2)));
+                  (Spec.Agile.Hash.finish hash_alg (EHS.repr st hh2)));
   assert (S.equal (B.as_seq hh3 dst)
-                  (Spec.Hash.PadFinish.finish hash_alg (Spec.Agile.Hash.update hash_alg (Spec.Agile.Hash.init hash_alg) (B.as_seq hh1 cb))));
+                  (Spec.Agile.Hash.finish hash_alg (Spec.Agile.Hash.update hash_alg (Spec.Agile.Hash.init hash_alg) (B.as_seq hh1 cb))));
   assert (S.equal (B.as_seq hh3 dst)
                   (MTH.sha256_compress
                     (Rgl?.r_repr(hreg hash_size) hh0 src1)
