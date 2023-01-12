@@ -2,6 +2,30 @@ LIBRARY libmerkletree
 
 EXPORTS
   LowStar_Vector_new_capacity
+  EverCrypt_Hash_string_of_alg
+  EverCrypt_Hash_uu___is_MD5_s
+  EverCrypt_Hash_uu___is_SHA1_s
+  EverCrypt_Hash_uu___is_SHA2_224_s
+  EverCrypt_Hash_uu___is_SHA2_256_s
+  EverCrypt_Hash_uu___is_SHA2_384_s
+  EverCrypt_Hash_uu___is_SHA2_512_s
+  EverCrypt_Hash_uu___is_SHA3_256_s
+  EverCrypt_Hash_uu___is_Blake2S_s
+  EverCrypt_Hash_uu___is_Blake2S_128_s
+  EverCrypt_Hash_uu___is_Blake2B_s
+  EverCrypt_Hash_uu___is_Blake2B_256_s
+  EverCrypt_Hash_alg_of_state
+  EverCrypt_Hash_create_in
+  EverCrypt_Hash_create
+  EverCrypt_Hash_init
+  EverCrypt_Hash_update_multi_256
+  EverCrypt_Hash_update_multi
+  EverCrypt_Hash_update_last_256
+  EverCrypt_Hash_update_last
+  EverCrypt_Hash_finish
+  EverCrypt_Hash_free_
+  EverCrypt_Hash_copy
+  LowStar_RVector_free_elems___uint8_t__uint32_t
   mt_init_hash
   mt_free_hash
   mt_init_path
@@ -36,7 +60,11 @@ EXPORTS
   MerkleTree_Low_uu___is_MT
   MerkleTree_Low_merkle_tree_conditions
   MerkleTree_Low_offset_of
+  LowStar_RVector_alloc___LowStar_Vector_vector_str__uint8_t__uint32_t
+  LowStar_RVector_alloc____uint8_t__uint32_t
+  LowStar_RVector_free_elems__LowStar_Vector_vector_str__uint8_t__uint32_t
   MerkleTree_Low_mt_free
+  MerkleTree_Low_insert_
   MerkleTree_Low_mt_insert_pre
   MerkleTree_Low_mt_insert
   MerkleTree_Low_mt_create_custom
@@ -44,22 +72,35 @@ EXPORTS
   MerkleTree_Low_init_path
   MerkleTree_Low_clear_path
   MerkleTree_Low_free_path
+  MerkleTree_Low_construct_rhs
   MerkleTree_Low_mt_get_root_pre
   MerkleTree_Low_mt_get_root
   MerkleTree_Low_mt_path_insert
+  MerkleTree_Low_mt_path_length
   MerkleTree_Low_mt_get_path_length
   MerkleTree_Low_mt_get_path_step_pre
   MerkleTree_Low_mt_get_path_step
+  MerkleTree_Low_mt_get_path_
   MerkleTree_Low_mt_get_path_pre
   MerkleTree_Low_mt_get_path
+  MerkleTree_Low_mt_flush_to_
   MerkleTree_Low_mt_flush_to_pre
   MerkleTree_Low_mt_flush_to
   MerkleTree_Low_mt_flush_pre
   MerkleTree_Low_mt_flush
+  LowStar_RVector_free_elems_from___uint8_t__uint32_t
+  MerkleTree_Low_mt_retract_to_
   MerkleTree_Low_mt_retract_to_pre
   MerkleTree_Low_mt_retract_to
+  MerkleTree_Low_mt_verify_
   MerkleTree_Low_mt_verify_pre
   MerkleTree_Low_mt_verify
+  MerkleTree_Low_Serialization_serialize_hash_i
+  MerkleTree_Low_Serialization_serialize_hash_vec_i
+  MerkleTree_Low_Serialization_hash_vv_bytes_i
+  MerkleTree_Low_Serialization_serialize_hash_vv_i
+  MerkleTree_Low_Serialization_deserialize_hash_vec_i
+  MerkleTree_Low_Serialization_deserialize_hash_vv_i
   MerkleTree_Low_Serialization_mt_serialize_size
   MerkleTree_Low_Serialization_mt_serialize
   MerkleTree_Low_Serialization_mt_deserialize

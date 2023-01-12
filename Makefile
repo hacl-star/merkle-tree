@@ -60,8 +60,8 @@ VALE_FLAGS= \
 
 
 # The usual bug with prims.krml
-dist/Makefile.basic: $(filter-out %prims.krml,$(ALL_KRML_FILES))
-	$(KRML) $(KOPTS) -library EverCrypt,EverCrypt.* $^ -tmpdir dist -skip-compilation \
+dist/Makefile.basic: $(filter-out %prims.krml,$(ALL_KRML_FILES)) | dist
+	$(KRML) $(KOPTS) $^ -tmpdir dist -skip-compilation \
 	  -minimal \
 	  -add-include '"krml/internal/target.h"' \
 	  -add-include '"krml/internal/types.h"' \
@@ -74,12 +74,21 @@ dist/Makefile.basic: $(filter-out %prims.krml,$(ALL_KRML_FILES))
 	  $(VALE_FLAGS) \
 	  -no-prefix 'MerkleTree' \
 	  -no-prefix 'MerkleTree.EverCrypt' \
+	  -bundle EverCrypt.Hash=EverCrypt,EverCrypt.*,Meta.*,Hacl.*,Vale.*,Spec.*,Lib.* \
+	  -library EverCrypt.AutoConfig2 \
+	  -add-include 'EverCrypt_Hash.c:"libintvector.h"' \
 	  -bundle 'MerkleTree+MerkleTree.Init+MerkleTree.EverCrypt+MerkleTree.Low+MerkleTree.Low.Serialization+MerkleTree.Low.Hashfunctions=MerkleTree.*[rename=MerkleTree]' \
 	  -bundle LowStar.* \
 	  -bundle Prims,C.Failure,C,C.String,C.Loops,Spec.Loops,C.Endianness,FStar.*[rename=Merkle_Krmllib] \
-	  -bundle 'Meta.*,Hacl.*,Vale.*,Spec.*,Lib.*,EverCrypt,EverCrypt.*[rename=Merkle_EverCrypt]'
+	  -library 'Meta.*,Hacl.*,Vale.*,Spec.*,Lib.*'
 
-dist/libmerkletree.a: dist/Makefile.basic
+dist/libintvector.h: $(HACL_HOME)/lib/c/libintvector.h | dist
+	cp $< $@
+
+dist:
+	mkdir $@
+
+dist/libmerkletree.a: dist/Makefile.basic dist/libintvector.h
 	$(MAKE) -C dist -f Makefile.basic
 
 # Tests
