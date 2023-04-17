@@ -20,7 +20,7 @@ let sha256_compress src1 src2 =
   let hash_alg = Spec.Hash.Definitions.SHA2_256 in
   let acc = Spec.Agile.Hash.init hash_alg in
   let acc = Spec.Agile.Hash.update hash_alg acc (S.append src1 src2) in
-  Spec.Agile.Hash.finish hash_alg acc
+  Spec.Agile.Hash.finish hash_alg acc ()
 
 /// For simplicity, we will specify the root for a sequence of [i]
 /// tags where [i <= 2^n] as the root of a full binary tree with [2^n]
