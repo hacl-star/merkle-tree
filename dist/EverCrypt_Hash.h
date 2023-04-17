@@ -5,19 +5,171 @@
   KaRaMeL version: 732ad7f2
  */
 
-#include "internal/LowStar.h"
+#ifndef __EverCrypt_Hash_H
+#define __EverCrypt_Hash_H
 
-static uint32_t max_uint32 = (uint32_t)4294967295U;
+#include "krml/internal/target.h"
+#include "krml/internal/types.h"
+#include "krml/lowstar_endianness.h"
+#include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
 
-static uint32_t resize_ratio = (uint32_t)2U;
+#define Spec_Hash_Definitions_SHA2_224 0
+#define Spec_Hash_Definitions_SHA2_256 1
+#define Spec_Hash_Definitions_SHA2_384 2
+#define Spec_Hash_Definitions_SHA2_512 3
+#define Spec_Hash_Definitions_SHA1 4
+#define Spec_Hash_Definitions_MD5 5
+#define Spec_Hash_Definitions_Blake2S 6
+#define Spec_Hash_Definitions_Blake2B 7
+#define Spec_Hash_Definitions_SHA3_256 8
+#define Spec_Hash_Definitions_SHA3_224 9
+#define Spec_Hash_Definitions_SHA3_384 10
+#define Spec_Hash_Definitions_SHA3_512 11
+#define Spec_Hash_Definitions_Shake128 12
+#define Spec_Hash_Definitions_Shake256 13
 
-uint32_t LowStar_Vector_new_capacity(uint32_t cap)
-{
-  if (cap >= max_uint32 / resize_ratio)
-    return max_uint32;
-  else if (cap == (uint32_t)0U)
-    return (uint32_t)1U;
-  else
-    return cap * resize_ratio;
-}
+typedef uint8_t Spec_Hash_Definitions_hash_alg;
 
+typedef Spec_Hash_Definitions_hash_alg EverCrypt_Hash_alg;
+
+C_String_t EverCrypt_Hash_string_of_alg(Spec_Hash_Definitions_hash_alg uu___);
+
+typedef Spec_Hash_Definitions_hash_alg EverCrypt_Hash_broken_alg;
+
+typedef Spec_Hash_Definitions_hash_alg EverCrypt_Hash_alg13;
+
+typedef void *EverCrypt_Hash_e_alg;
+
+typedef struct EverCrypt_Hash_state_s_s EverCrypt_Hash_state_s;
+
+bool
+EverCrypt_Hash_uu___is_MD5_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_SHA1_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_SHA2_224_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_SHA2_256_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_SHA2_384_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_SHA2_512_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_SHA3_224_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_SHA3_256_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_SHA3_384_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_SHA3_512_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_Blake2S_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_Blake2S_128_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_Blake2B_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+bool
+EverCrypt_Hash_uu___is_Blake2B_256_s(
+  Spec_Hash_Definitions_hash_alg uu___,
+  EverCrypt_Hash_state_s projectee
+);
+
+typedef EverCrypt_Hash_state_s *EverCrypt_Hash_state;
+
+Spec_Hash_Definitions_hash_alg EverCrypt_Hash_alg_of_state(EverCrypt_Hash_state_s *s);
+
+EverCrypt_Hash_state_s *EverCrypt_Hash_create_in(Spec_Hash_Definitions_hash_alg a);
+
+EverCrypt_Hash_state_s *EverCrypt_Hash_create(Spec_Hash_Definitions_hash_alg a);
+
+void EverCrypt_Hash_init(EverCrypt_Hash_state_s *s);
+
+void EverCrypt_Hash_update_multi_256(uint32_t *s, uint8_t *blocks, uint32_t n);
+
+void
+EverCrypt_Hash_update_multi(
+  EverCrypt_Hash_state_s *s,
+  uint64_t prevlen,
+  uint8_t *blocks,
+  uint32_t len
+);
+
+void
+EverCrypt_Hash_update_last_256(
+  uint32_t *s,
+  uint64_t prev_len,
+  uint8_t *input,
+  uint32_t input_len
+);
+
+void
+EverCrypt_Hash_update_last(
+  EverCrypt_Hash_state_s *s,
+  uint64_t prev_len,
+  uint8_t *last,
+  uint32_t last_len
+);
+
+void EverCrypt_Hash_finish(EverCrypt_Hash_state_s *s, uint8_t *dst);
+
+void EverCrypt_Hash_free_(EverCrypt_Hash_state_s *s);
+
+void EverCrypt_Hash_copy(EverCrypt_Hash_state_s *s_src, EverCrypt_Hash_state_s *s_dst);
+
+
+#define __EverCrypt_Hash_H_DEFINED
+#endif

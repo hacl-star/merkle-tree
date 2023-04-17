@@ -5,19 +5,20 @@
   KaRaMeL version: 732ad7f2
  */
 
-#include "internal/LowStar.h"
+#ifndef __internal_Merkle_Krmllib_H
+#define __internal_Merkle_Krmllib_H
 
-static uint32_t max_uint32 = (uint32_t)4294967295U;
+#include "krml/internal/target.h"
+#include "krml/internal/types.h"
+#include "krml/lowstar_endianness.h"
+#include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
 
-static uint32_t resize_ratio = (uint32_t)2U;
+static inline uint8_t FStar_UInt8_eq_mask(uint8_t a, uint8_t b);
 
-uint32_t LowStar_Vector_new_capacity(uint32_t cap)
-{
-  if (cap >= max_uint32 / resize_ratio)
-    return max_uint32;
-  else if (cap == (uint32_t)0U)
-    return (uint32_t)1U;
-  else
-    return cap * resize_ratio;
-}
+static inline FStar_UInt128_uint128 FStar_UInt128_uint64_to_uint128(uint64_t a);
 
+
+#define __internal_Merkle_Krmllib_H_DEFINED
+#endif

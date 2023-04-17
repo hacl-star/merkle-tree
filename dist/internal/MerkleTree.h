@@ -5,19 +5,211 @@
   KaRaMeL version: 732ad7f2
  */
 
+#ifndef __internal_MerkleTree_H
+#define __internal_MerkleTree_H
+
+#include "internal/Merkle_Krmllib.h"
 #include "internal/LowStar.h"
+#include "internal/EverCrypt_Hash.h"
+#include "../MerkleTree.h"
+#include "krml/internal/target.h"
+#include "krml/internal/types.h"
+#include "krml/lowstar_endianness.h"
+#include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
 
-static uint32_t max_uint32 = (uint32_t)4294967295U;
-
-static uint32_t resize_ratio = (uint32_t)2U;
-
-uint32_t LowStar_Vector_new_capacity(uint32_t cap)
+typedef struct LowStar_Regional_regional__uint32_t__uint8_t__s
 {
-  if (cap >= max_uint32 / resize_ratio)
-    return max_uint32;
-  else if (cap == (uint32_t)0U)
-    return (uint32_t)1U;
-  else
-    return cap * resize_ratio;
+  uint32_t state;
+  uint8_t *dummy;
+  uint8_t *(*r_alloc)(uint32_t x0);
+  void (*r_free)(uint32_t x0, uint8_t *x1);
 }
+LowStar_Regional_regional__uint32_t__uint8_t_;
 
+void
+LowStar_RVector_free_elems___uint8_t__uint32_t(
+  LowStar_Regional_regional__uint32_t__uint8_t_ rg,
+  MerkleTree_Low_Datastructures_hash_vec rv,
+  uint32_t idx
+);
+
+typedef struct LowStar_Regional_regional__uint32_t_MerkleTree_Low_Datastructures_hash_vec_s
+{
+  uint32_t state;
+  MerkleTree_Low_Datastructures_hash_vec dummy;
+  MerkleTree_Low_Datastructures_hash_vec (*r_alloc)(uint32_t x0);
+  void (*r_free)(uint32_t x0, MerkleTree_Low_Datastructures_hash_vec x1);
+}
+LowStar_Regional_regional__uint32_t_MerkleTree_Low_Datastructures_hash_vec;
+
+void
+LowStar_RVector_alloc___LowStar_Vector_vector_str__uint8_t__uint32_t(
+  LowStar_Regional_regional__uint32_t_MerkleTree_Low_Datastructures_hash_vec rg,
+  MerkleTree_Low_Datastructures_hash_vv rv,
+  uint32_t cidx
+);
+
+void
+LowStar_RVector_alloc____uint8_t__uint32_t(
+  LowStar_Regional_regional__uint32_t__uint8_t_ rg,
+  MerkleTree_Low_Datastructures_hash_vec rv,
+  uint32_t cidx
+);
+
+void
+LowStar_RVector_free_elems__LowStar_Vector_vector_str__uint8_t__uint32_t(
+  LowStar_Regional_regional__uint32_t_MerkleTree_Low_Datastructures_hash_vec rg,
+  MerkleTree_Low_Datastructures_hash_vv rv,
+  uint32_t idx
+);
+
+void
+MerkleTree_Low_insert_(
+  uint32_t hsz,
+  uint32_t lv,
+  uint32_t j,
+  MerkleTree_Low_Datastructures_hash_vv hs,
+  uint8_t *acc,
+  void (*hash_fun)(uint8_t *x0, uint8_t *x1, uint8_t *x2)
+);
+
+void
+MerkleTree_Low_construct_rhs(
+  uint32_t hsz,
+  uint32_t lv,
+  MerkleTree_Low_Datastructures_hash_vv hs,
+  MerkleTree_Low_Datastructures_hash_vec rhs,
+  uint32_t i,
+  uint32_t j,
+  uint8_t *acc,
+  bool actd,
+  void (*hash_fun)(uint8_t *x0, uint8_t *x1, uint8_t *x2)
+);
+
+uint32_t MerkleTree_Low_mt_path_length(uint32_t lv, uint32_t k, uint32_t j, bool actd);
+
+void
+MerkleTree_Low_mt_get_path_(
+  uint32_t hsz,
+  uint32_t lv,
+  MerkleTree_Low_Datastructures_hash_vv hs,
+  MerkleTree_Low_Datastructures_hash_vec rhs,
+  uint32_t i,
+  uint32_t j,
+  uint32_t k,
+  MerkleTree_Low_path *p,
+  bool actd
+);
+
+void
+MerkleTree_Low_mt_flush_to_(
+  uint32_t hsz,
+  uint32_t lv,
+  MerkleTree_Low_Datastructures_hash_vv hs,
+  uint32_t pi,
+  uint32_t i
+);
+
+void
+LowStar_RVector_free_elems_from___uint8_t__uint32_t(
+  LowStar_Regional_regional__uint32_t__uint8_t_ rg,
+  MerkleTree_Low_Datastructures_hash_vec rv,
+  uint32_t idx
+);
+
+void
+MerkleTree_Low_mt_retract_to_(
+  uint32_t hsz,
+  MerkleTree_Low_Datastructures_hash_vv hs,
+  uint32_t lv,
+  uint32_t i,
+  uint32_t s,
+  uint32_t j
+);
+
+void
+MerkleTree_Low_mt_verify_(
+  uint32_t hsz,
+  uint32_t k,
+  uint32_t j,
+  const MerkleTree_Low_path *p,
+  uint32_t ppos,
+  uint8_t *acc,
+  bool actd,
+  void (*hash_fun)(uint8_t *x0, uint8_t *x1, uint8_t *x2)
+);
+
+typedef struct K___bool_uint32_t_s
+{
+  bool fst;
+  uint32_t snd;
+}
+K___bool_uint32_t;
+
+K___bool_uint32_t
+MerkleTree_Low_Serialization_serialize_hash_i(
+  uint32_t hash_size,
+  bool ok,
+  uint8_t *x,
+  uint8_t *buf,
+  uint32_t sz,
+  uint32_t pos,
+  uint32_t i
+);
+
+K___bool_uint32_t
+MerkleTree_Low_Serialization_serialize_hash_vec_i(
+  uint32_t hash_size,
+  bool ok,
+  MerkleTree_Low_Datastructures_hash_vec x,
+  uint8_t *buf,
+  uint32_t sz,
+  uint32_t pos,
+  uint32_t i
+);
+
+uint64_t
+MerkleTree_Low_Serialization_hash_vv_bytes_i(
+  uint32_t hash_size,
+  MerkleTree_Low_Datastructures_hash_vv vv,
+  uint32_t i
+);
+
+K___bool_uint32_t
+MerkleTree_Low_Serialization_serialize_hash_vv_i(
+  uint32_t hash_size,
+  bool ok,
+  MerkleTree_Low_Datastructures_hash_vv x,
+  uint8_t *buf,
+  uint32_t sz,
+  uint32_t pos,
+  uint32_t i
+);
+
+K___bool_uint32_t
+MerkleTree_Low_Serialization_deserialize_hash_vec_i(
+  uint32_t hash_size,
+  bool ok,
+  const uint8_t *buf,
+  uint32_t sz,
+  uint32_t pos,
+  MerkleTree_Low_Datastructures_hash_vec res,
+  uint32_t i
+);
+
+K___bool_uint32_t
+MerkleTree_Low_Serialization_deserialize_hash_vv_i(
+  uint32_t hash_size,
+  bool ok,
+  const uint8_t *buf,
+  uint32_t sz,
+  uint32_t pos,
+  MerkleTree_Low_Datastructures_hash_vv res,
+  uint32_t i
+);
+
+
+#define __internal_MerkleTree_H_DEFINED
+#endif
