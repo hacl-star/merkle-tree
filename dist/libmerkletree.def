@@ -9,7 +9,10 @@ EXPORTS
   EverCrypt_Hash_uu___is_SHA2_256_s
   EverCrypt_Hash_uu___is_SHA2_384_s
   EverCrypt_Hash_uu___is_SHA2_512_s
+  EverCrypt_Hash_uu___is_SHA3_224_s
   EverCrypt_Hash_uu___is_SHA3_256_s
+  EverCrypt_Hash_uu___is_SHA3_384_s
+  EverCrypt_Hash_uu___is_SHA3_512_s
   EverCrypt_Hash_uu___is_Blake2S_s
   EverCrypt_Hash_uu___is_Blake2S_128_s
   EverCrypt_Hash_uu___is_Blake2B_s
