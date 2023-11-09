@@ -23,7 +23,6 @@ EXPORTS
   EverCrypt_Hash_init
   EverCrypt_Hash_update_multi_256
   EverCrypt_Hash_update_multi
-  EverCrypt_Hash_update_last_256
   EverCrypt_Hash_update_last
   EverCrypt_Hash_finish
   EverCrypt_Hash_free_
