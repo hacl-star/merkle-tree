@@ -63,6 +63,7 @@ VALE_FLAGS= \
 dist/Makefile.basic: $(filter-out %prims.krml,$(ALL_KRML_FILES))
 	$(KRML) $(KOPTS) $^ -tmpdir dist -skip-compilation \
 	  -minimal \
+	  -add-include '"hacl_krmlrenamings.h"' \
 	  -add-include '"krml/internal/target.h"' \
 	  -add-include '"krml/internal/types.h"' \
 	  -add-include '"krml/lowstar_endianness.h"' \
@@ -81,6 +82,9 @@ dist/Makefile.basic: $(filter-out %prims.krml,$(ALL_KRML_FILES))
 	  -bundle Prims,C.Failure,C,C.String,C.Loops,Spec.Loops,C.Endianness,FStar.*[rename=Merkle_Krmllib] \
 	  -library 'Meta.*,Hacl.*,Vale.*,Spec.*,Lib.*' \
 	  -ccopts '-DLib_IntVector_Intrinsics_vec256=void*,-DLib_IntVector_Intrinsics_vec128=void*'
+
+dist/hacl_krmlrenamings.h: $(HACL_HOME)/dist/gcc-compatible/clients/krmlrenamings.h
+	cp $< $@
 
 # A note on the options above. Merkle Tree does something illegal: it attempts
 # to refer to an API of EverCrypt that is not exported in the generated .so. In
@@ -105,7 +109,7 @@ dist/Makefile.basic: $(filter-out %prims.krml,$(ALL_KRML_FILES))
 # perspective. Should anyone be interested in a reference Makefile, please use
 # commit 19b1307e as a reference.
 
-dist/libmerkletree.a: dist/Makefile.basic
+dist/libmerkletree.a: dist/Makefile.basic dist/hacl_krmlrenamings.h
 	$(MAKE) -C dist -f Makefile.basic
 
 # Tests
