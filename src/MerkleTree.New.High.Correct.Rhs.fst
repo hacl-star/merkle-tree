@@ -228,8 +228,8 @@ val construct_rhs_acc_consistent:
           snd rrf == snd rr)))
         (decreases j)
 
-#push-options "--z3rlimit 250 --ifuel 1"
-#push-options "--quake 1/3"
+#push-options "--z3rlimit 300 --ifuel 1"
+#push-options "--retry 3"
 let rec construct_rhs_acc_consistent #hsz #f lv i j olds hs rhs acc actd =
   assert (j < pow2 (32 - lv));
   assert (j <> 0 ==> j / 2 < pow2 (32 - (lv + 1)));
