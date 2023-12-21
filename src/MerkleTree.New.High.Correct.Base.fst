@@ -382,7 +382,7 @@ val mt_hashes_inv_log_converted_:
         (decreases j)
 #pop-options
 
-#push-options "--z3rlimit 75 --initial_fuel 2 --max_fuel 2"
+#push-options "--z3rlimit 100 --initial_fuel 2 --max_fuel 2"
 let rec mt_hashes_inv_log_converted_ #_ #f lv j fhs =
   if j = 1 then ()
   else (log2c_bound (j / 2) (32 - (lv + 1));
