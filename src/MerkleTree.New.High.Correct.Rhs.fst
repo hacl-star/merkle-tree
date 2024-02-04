@@ -80,7 +80,9 @@ val construct_rhs_acc_inv_ok_0:
 let construct_rhs_acc_inv_ok_0 #_ #f fhs acc actd = ()
 #pop-options
 
-#push-options "--z3rlimit 240"
+#push-options "--z3rlimit 300"
+#restart-solver
+
 val construct_rhs_acc_inv_ok:
   #hsz:pos -> #f:MTS.hash_fun_t #hsz ->
   j:nat{j > 0} ->
