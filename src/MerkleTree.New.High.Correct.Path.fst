@@ -207,7 +207,7 @@ val mt_get_path_acc_inv_ok:
                           (MTS.mt_get_path #_ #f #(log2c j)
                             (hash_seq_spec_full #_ #f (S.head fhs) acc actd) k)))
         (decreases j)
-#push-options "--z3rlimit 80 --max_fuel 1"
+#push-options "--z3rlimit 120 --max_fuel 1"
 let rec mt_get_path_acc_inv_ok #_ #f j fhs rhs k acc actd =
   // Below dummy `let` is necessary to provide guidance to the SMT solver.
   let _ = mt_get_path_step_acc j (S.head fhs) (S.head rhs) k actd in
