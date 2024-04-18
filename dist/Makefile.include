@@ -2,4 +2,4 @@ USER_TARGET=libmerkletree.a
 USER_CFLAGS=-DLib_IntVector_Intrinsics_vec256=void* -DLib_IntVector_Intrinsics_vec128=void*
 USER_C_FILES=
 ALL_C_FILES=EverCrypt_Hash.c LowStar.c MerkleTree.c
-ALL_H_FILES=EverCrypt_Hash.h MerkleTree.h internal/EverCrypt_Hash.h internal/LowStar.h internal/MerkleTree.h internal/Merkle_Krmllib.h
+ALL_H_FILES=MerkleTree.h internal/EverCrypt_Hash.h internal/LowStar.h internal/MerkleTree.h internal/Merkle_Krmllib.h

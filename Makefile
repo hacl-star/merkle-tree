@@ -1,4 +1,4 @@
-l: test
+all: test
 
 # Boilerplate
 # -----------
@@ -71,11 +71,12 @@ dist/Makefile.basic: $(filter-out %prims.krml,$(ALL_KRML_FILES))
 	  -add-include '<stdbool.h>' \
 	  -add-include '<string.h>' \
 	  -fparentheses \
+	  -funroll-loops 16 \
 	  -o libmerkletree.a \
 	  $(VALE_FLAGS) \
 	  -no-prefix 'MerkleTree' \
 	  -no-prefix 'MerkleTree.EverCrypt' \
-	  -bundle EverCrypt.Hash=EverCrypt,EverCrypt.*,Meta.*,Hacl.*,Vale.*,Spec.*,Lib.* \
+	  -bundle EverCrypt.Hash,EverCrypt,EverCrypt.*,Meta.*,Hacl.*,Vale.*,Spec.*,Lib.*[rename=EverCrypt_Hash] \
 	  -library EverCrypt.AutoConfig2 \
 	  -bundle 'MerkleTree+MerkleTree.Init+MerkleTree.EverCrypt+MerkleTree.Low+MerkleTree.Low.Serialization+MerkleTree.Low.Hashfunctions=MerkleTree.*[rename=MerkleTree]' \
 	  -bundle LowStar.* \

@@ -2,31 +2,11 @@ LIBRARY libmerkletree
 
 EXPORTS
   LowStar_Vector_new_capacity
-  EverCrypt_Hash_string_of_alg
-  EverCrypt_Hash_uu___is_MD5_s
-  EverCrypt_Hash_uu___is_SHA1_s
-  EverCrypt_Hash_uu___is_SHA2_224_s
-  EverCrypt_Hash_uu___is_SHA2_256_s
-  EverCrypt_Hash_uu___is_SHA2_384_s
-  EverCrypt_Hash_uu___is_SHA2_512_s
-  EverCrypt_Hash_uu___is_SHA3_224_s
-  EverCrypt_Hash_uu___is_SHA3_256_s
-  EverCrypt_Hash_uu___is_SHA3_384_s
-  EverCrypt_Hash_uu___is_SHA3_512_s
-  EverCrypt_Hash_uu___is_Blake2S_s
-  EverCrypt_Hash_uu___is_Blake2S_128_s
-  EverCrypt_Hash_uu___is_Blake2B_s
-  EverCrypt_Hash_uu___is_Blake2B_256_s
-  EverCrypt_Hash_alg_of_state
   EverCrypt_Hash_create_in
-  EverCrypt_Hash_create
   EverCrypt_Hash_init
-  EverCrypt_Hash_update_multi_256
   EverCrypt_Hash_update_multi
-  EverCrypt_Hash_update_last
   EverCrypt_Hash_finish
   EverCrypt_Hash_free_
-  EverCrypt_Hash_copy
   LowStar_RVector_free_elems___uint8_t__uint32_t
   mt_init_hash
   mt_free_hash
