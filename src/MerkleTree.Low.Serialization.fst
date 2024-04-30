@@ -107,6 +107,7 @@ private inline_for_extraction
 let u64_add_fits (x:uint64_t) (y:uint64_t): Tot (r:bool{r ==> UInt.size (U64.v x + U64.v y) 64}) = uint64_max - x >= y
 
 #push-options "--z3rlimit 100 --fuel 1 --quake 1/3"
+#restart-solver
 private inline_for_extraction
 let hash_vec_bytes 
   (#hash_size:hash_size_t)
