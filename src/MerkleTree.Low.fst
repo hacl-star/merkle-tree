@@ -2023,7 +2023,8 @@ let mt_get_path_loc_union_helper l1 l2 = ()
 // Construct a Merkle path for a given index `idx`, hashes `mt.hs`, and rightmost
 // hashes `mt.rhs`. Note that this operation copies "pointers" into the Merkle tree
 // to the output path.
-#push-options "--z3rlimit 60"
+#push-options "--z3rlimit 100"
+#restart-solver
 val mt_get_path:
   #hsz:Ghost.erased hash_size_t ->
   mt:const_mt_p ->
