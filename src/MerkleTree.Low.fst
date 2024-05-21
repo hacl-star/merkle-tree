@@ -1823,7 +1823,7 @@ val mt_make_path_step:
                (MTH.mt_make_path_step
                  (U32.v lv) (RV.as_seq h0 hs) (RV.as_seq h0 rhs)
                  (U32.v i) (U32.v j) (U32.v k) before actd)))))
-#push-options "--z3rlimit 100 --initial_fuel 1 --max_fuel 1 --initial_ifuel 2 --max_ifuel 2"
+#push-options "--z3rlimit 150 --initial_fuel 1 --max_fuel 1 --initial_ifuel 2 --max_ifuel 2"
 let mt_make_path_step #hsz lv mtr hs rhs i j k p actd =
   let pth = !*p in
   let hh0 = HST.get () in
