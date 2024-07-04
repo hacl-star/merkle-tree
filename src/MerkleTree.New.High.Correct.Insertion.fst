@@ -151,43 +151,25 @@ let rec insert_inv_preserved #_ #f lv i j olds hs acc =
   end
 #reset-options
 
-val mt_insert_inv_preserved:
-  #hsz:pos ->
-  mt:merkle_tree #hsz {mt_wf_elts mt /\ mt_not_full mt} -> v:hash ->
-  olds:hashess #hsz {S.length olds = 32 /\ mt_olds_inv #hsz 0 (MT?.i mt) olds} ->
-  Lemma (requires (mt_inv #hsz mt olds))
-        (ensures (mt_inv #hsz (mt_insert mt v) olds))
 let mt_insert_inv_preserved #_ mt v olds =
   insert_inv_preserved #_ #(MT?.hash_fun mt) 0 (MT?.i mt) (MT?.j mt) olds (MT?.hs mt) v
 
 /// Correctness of `create_mt`
 
-val empty_olds_inv:
-  #hsz:pos -> #f:MTS.hash_fun_t #hsz ->
-  lv:nat{lv <= 32} ->
-  Lemma (requires True)
+let rec empty_olds_inv
+  (#hsz:pos) (#f:MTS.hash_fun_t #hsz)
+  (lv:nat{lv <= 32})
+: Lemma (requires True)
         (ensures (mt_olds_inv #hsz lv 0 (empty_hashes 32)))
-        (decreases (32 - lv))
-let rec empty_olds_inv #_ #f lv =
+        (decreases 32-lv) =
   if lv = 32 then ()
   else empty_olds_inv #_ #f (lv + 1)
 
-val create_empty_mt_inv_ok:
-  #hsz:pos -> #f:MTS.hash_fun_t #hsz ->
-  unit ->
-  Lemma (empty_olds_inv #_ #f 0;
-        mt_inv #hsz (create_empty_mt #_ #f ()) (empty_hashes 32))
 let create_empty_mt_inv_ok #_ #f _ =
   merge_hs_empty #_ #f 32;
   mt_hashes_inv_empty #_ #f 0
 
-val create_mt_inv_ok:
-  #hsz:pos -> #f:MTS.hash_fun_t #hsz ->
-  init:hash ->
-  Lemma (empty_olds_inv #_ #f 0;
-        mt_inv #hsz (mt_create hsz f init) (empty_hashes 32))
 let create_mt_inv_ok #hsz #f init =
   create_empty_mt_inv_ok #_ #f ();
   empty_olds_inv #_ #f 0;
   mt_insert_inv_preserved #_ (create_empty_mt #hsz #f ()) init (empty_hashes 32)
-

@@ -395,20 +395,6 @@ let rec construct_rhs_init_ignored #hsz #f lv hs rhs i j acc1 acc2 =
   else ()
 #pop-options
 
-val mt_get_root_inv_ok:
-  #hsz:pos -> 
-  mt:merkle_tree #hsz {mt_wf_elts mt} -> drt:hash ->
-  olds:hashess #hsz {S.length olds = 32 /\ mt_olds_inv #hsz 0 (MT?.i mt) olds} ->
-  Lemma (requires (mt_inv mt olds))
-        (ensures (let nmt, rt = mt_get_root mt drt in
-                 // Only `MT?.rhs` and `MT?.mroot` are changed.
-                 MT?.i mt == MT?.i nmt /\
-                 MT?.j mt == MT?.j nmt /\
-                 MT?.hs mt == MT?.hs nmt /\
-                 // A Merkle tree with new `MT?.rhs` and `MT?.mroot` is valid.
-                 mt_inv nmt olds /\
-                 // A returned root is indeed the Merkle root.
-                 rt == MT?.mroot nmt))
 let mt_get_root_inv_ok #hsz mt drt olds =
   if MT?.rhs_ok mt then ()
   else if MT?.j mt = 0 then ()
