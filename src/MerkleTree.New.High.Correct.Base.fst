@@ -467,10 +467,12 @@ val mt_hashes_next_rel_lift_odd:
                    (hash_seq_spec #hsz hs)
                    (S.upd (hash_seq_spec #hsz nhs)
                           (S.length nhs) (MTS.HRaw (S.last hs))))
+#push-options "--z3rlimit 100"
 let mt_hashes_next_rel_lift_odd #hsz #_ j hs nhs =
   log2c_div j;
   hash_seq_lift_index #hsz hs;
   hash_seq_lift_index #hsz nhs
+#pop-options
 
 val mt_hashes_next_rel_next_even:
   #hsz:pos -> #f:MTS.hash_fun_t #hsz ->
