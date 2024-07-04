@@ -132,7 +132,7 @@ val mt_get_path_acc_consistent:
                     (S.slice rhs lv (lv + log2c j)) k actd)
                   (mt_get_path_ #_ lv hs rhs i j k S.empty actd)))
         (decreases j)
-#push-options "--z3rlimit 1000 --max_fuel 1 --max_ifuel 0"
+#push-options "--z3rlimit 1000 --fuel 1 --ifuel 0"
 let rec mt_get_path_acc_consistent #hsz #f lv i j olds hs rhs k actd =
   log2c_bound j (32 - lv);
   mt_olds_hs_lth_inv_ok #_ #f lv i j olds hs;
@@ -289,7 +289,12 @@ val mt_get_path_inv_ok:
                  (assert (S.length (S.tail p) == mt_path_length idx (MT?.j mt) false);
                  S.equal (path_spec idx (MT?.j mt) false (S.tail p))
                          (MTS.mt_get_path #_ #(MT?.hash_fun mt) #(log2c j) (mt_spec mt olds) idx))))
-#push-options "--z3rlimit 40"
+
+(* This proof is not that difficult to Z3, but it sometimes triggers
+an internal overflow in Z3. So, restart the solver and use a retry 2 to
+work around it in most cases. *)
+#push-options "--z3rlimit 40 --retry 2"
+#restart-solver
 let mt_get_path_inv_ok #hsz mt olds idx drt =
   let j, p, rt = mt_get_path mt idx drt in
   mt_get_root_inv_ok mt drt olds;
