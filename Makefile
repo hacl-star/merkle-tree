@@ -31,7 +31,7 @@ hints obj:
 	mkdir $@
 
 %.checked: | hints obj
-	$(FSTAR) --hint_file hints/$(notdir $*).hints $(notdir $*) && touch -c $@
+	$(FSTAR) --hint_dir hints $(notdir $*) && touch -c $@
 
 %.krml:
 	$(FSTAR) --codegen krml \
