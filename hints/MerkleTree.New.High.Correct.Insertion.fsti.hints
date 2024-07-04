@@ -1,0 +1,57 @@
+[
+  "=GM≤ WW∂[U‡‘ô…rº",
+  [
+    [
+      "MerkleTree.New.High.Correct.Insertion.mt_insert_inv_preserved",
+      1,
+      2,
+      1,
+      [
+        "@query", "equation_MerkleTree.New.High.mt_insert",
+        "proj_equation_MerkleTree.New.High.MT_i",
+        "projection_inverse_MerkleTree.New.High.MT_i"
+      ],
+      0,
+      "a87b74e8609e05ed4d2e2bd3238f187e"
+    ],
+    [
+      "MerkleTree.New.High.Correct.Insertion.empty_olds_inv",
+      1,
+      2,
+      1,
+      [ "@query" ],
+      0,
+      "44dc6e960e8f47e02c30b59d71699568"
+    ],
+    [
+      "MerkleTree.New.High.Correct.Insertion.create_empty_mt_inv_ok",
+      1,
+      2,
+      1,
+      [
+        "@query", "equation_MerkleTree.New.High.Correct.Base.empty_hashes",
+        "equation_MerkleTree.New.High.create_empty_mt",
+        "proj_equation_MerkleTree.New.High.MT_i",
+        "projection_inverse_MerkleTree.New.High.MT_i"
+      ],
+      0,
+      "35b4e5a613ff6935ae47703deaeda0b7"
+    ],
+    [
+      "MerkleTree.New.High.Correct.Insertion.create_mt_inv_ok",
+      1,
+      2,
+      1,
+      [
+        "@query", "equation_MerkleTree.New.High.Correct.Base.empty_hashes",
+        "equation_MerkleTree.New.High.create_empty_mt",
+        "equation_MerkleTree.New.High.mt_create",
+        "equation_MerkleTree.New.High.mt_insert",
+        "proj_equation_MerkleTree.New.High.MT_i",
+        "projection_inverse_MerkleTree.New.High.MT_i"
+      ],
+      0,
+      "a641654dc9cf2e27dfb44da45a8ce280"
+    ]
+  ]
+]

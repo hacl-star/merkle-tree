@@ -1,0 +1,23 @@
+[
+  "1L\u001f\u0001\u000b£ á¥ËCœz4@Å",
+  [
+    [
+      "MerkleTree.New.High.Correct.Rhs.mt_get_root_inv_ok",
+      1,
+      2,
+      1,
+      [
+        "@MaxIFuel_assumption", "@query",
+        "equation_MerkleTree.New.High.mt_wf_elts",
+        "fuel_guarded_inversion_MerkleTree.New.High.merkle_tree",
+        "proj_equation_MerkleTree.New.High.MT_hs",
+        "proj_equation_MerkleTree.New.High.MT_i",
+        "proj_equation_MerkleTree.New.High.MT_j",
+        "refinement_interpretation_Tm_refine_7f59e1d21662a5bb0549ee09247e1710",
+        "refinement_interpretation_Tm_refine_995516c5fe04fd93611e610195bbf9ba"
+      ],
+      0,
+      "5bfeeb618091067dab301f10cad7c2b0"
+    ]
+  ]
+]
