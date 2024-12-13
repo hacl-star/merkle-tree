@@ -1,5 +1,6 @@
 MERKLE_HOME ?= $(realpath .)
 
+FSTAR_EXE ?= fstar.exe
 KRML_HOME ?= $(MERKLE_HOME)/../karamel
 HACL_HOME ?= $(MERKLE_HOME)/../hacl-star
 
@@ -27,7 +28,7 @@ FSTAR_FLAGS=$(FSTAR_CHILL_FLAGS) \
 	--already_cached '*,-MerkleTree,-MerkleTree.*,-Lib.RawBuffer' \
 	--warn_error @241-274 \
 
-FSTAR=$(FSTAR_HOME)/bin/fstar.exe $(FSTAR_FLAGS)
+FSTAR=$(FSTAR_EXE) $(FSTAR_FLAGS)
 
 %.fst-in %.fsti-in:
 	@echo $(FSTAR_CHILL_FLAGS)
