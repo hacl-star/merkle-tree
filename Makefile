@@ -61,7 +61,7 @@ VALE_FLAGS= \
 
 # The usual bug with prims.krml
 dist/Makefile.basic: $(filter-out %prims.krml,$(ALL_KRML_FILES))
-	$(KRML) $(KOPTS) $^ -tmpdir dist -skip-compilation \
+	$(KRML) -fstar $(FSTAR_EXE) $(KOPTS) $^ -tmpdir dist -skip-compilation \
 	  -minimal \
 	  -add-include '"hacl_krmlrenamings.h"' \
 	  -add-include '"krml/internal/target.h"' \
