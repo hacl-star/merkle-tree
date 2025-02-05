@@ -11,7 +11,7 @@ ifndef NODEPEND
 ifndef MAKE_RESTARTS
 .depend: .FORCE
 	@mkdir -p obj
-	@$(FSTAR) --dep full $(FST_FILES) > $@
+	@$(FSTAR) --dep full $(FST_FILES) --output_deps_to $@
 
 .PHONY: .FORCE
 .FORCE:

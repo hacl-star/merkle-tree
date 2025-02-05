@@ -39,7 +39,11 @@ let mt_sha256_compress src1 src2 dst =
   B.blit src2 0ul cb 32ul hash_size;
 
   // ONLY WORKS BECAUSE hash_alg is inline_for_extraction and is known to be SHA2_256
-  let st = EHS.create_in hash_alg HyperStack.root in
+  let st =
+    match EHS.create_in hash_alg HyperStack.root with
+    | Some st -> st
+    | None -> LowStar.Failure.failwith "out of memory"
+  in
   EHS.init #(Ghost.hide hash_alg) st;
   let hh1 = HST.get () in
   assert (S.equal (S.append

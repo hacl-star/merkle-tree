@@ -22,6 +22,7 @@ FSTAR_CHILL_FLAGS= \
 	--cmi \
 	--use_hints \
 	--record_hints \
+	--ext context_pruning \
 	$(OTHERFLAGS)
 
 FSTAR_FLAGS=$(FSTAR_CHILL_FLAGS) \
